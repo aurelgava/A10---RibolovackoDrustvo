@@ -7,6 +7,7 @@ package ribolovackodrustvo.a10;
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -64,8 +65,18 @@ public class GlavniProzor extends javax.swing.JFrame {
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resursi/info.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resursi/emergency-exit.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,7 +210,7 @@ public class GlavniProzor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        DefaultTableModel dtm = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         //System.out.println(dtm.getValueAt(1, 2));
         PecarosDO p = new PecarosDO();
         int indeks = jTable1.getSelectedRow();
@@ -208,26 +219,46 @@ public class GlavniProzor extends javax.swing.JFrame {
         p.prezime = (String) dtm.getValueAt(indeks, 2);
         p.adresa = (String) dtm.getValueAt(indeks, 3);
         p.grad = (GradDO) dtm.getValueAt(indeks, 4);
-        for(int i = 0; i<jComboBox1.getItemCount();i++){
-            if(((GradDO)jComboBox1.getModel().getElementAt(i)).ID == p.grad.ID){
+        for (int i = 0; i < jComboBox1.getItemCount(); i++) {
+            if (((GradDO) jComboBox1.getModel().getElementAt(i)).ID == p.grad.ID) {
                 jComboBox1.setSelectedIndex(i);
                 break;
             }
         }
         p.telefon = (String) dtm.getValueAt(indeks, 5);
-        jTextField1.setText(""+p.ID);
+        jTextField1.setText("" + p.ID);
         jTextField2.setText(p.ime);
         jTextField3.setText(p.prezime);
         jTextField4.setText(p.adresa);
         jTextField6.setText(p.telefon);
-        
-        
-        
+
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        PecarosDO pecaros = new PecarosDO();
+        try {
+            pecaros.ID = Integer.parseInt(jTextField1.getText());
+            pecaros.adresa = jTextField4.getText();
+            pecaros.grad = (GradDO) jComboBox1.getSelectedItem();
+            pecaros.ime = jTextField2.getText();
+            pecaros.prezime = jTextField3.getText();
+            pecaros.telefon = jTextField6.getText();
+            DatabaseProxy.setPecaros(pecaros);
+            this.populate();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Pogresan ID", "Greska", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new InfoProzor().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,7 +328,7 @@ public class GlavniProzor extends javax.swing.JFrame {
         dtm.addColumn("Grad");
         dtm.addColumn("Telefon");
         PecarosDO min = pecarosi.get(0);
-        for(PecarosDO p : pecarosi){
+        for (PecarosDO p : pecarosi) {
             Object[] red = new Object[6];
             red[0] = p.ID;
             red[1] = p.ime;
@@ -306,24 +337,26 @@ public class GlavniProzor extends javax.swing.JFrame {
             red[4] = p.grad;
             red[5] = p.telefon;
             dtm.addRow(red);
-            if(p.ID<min.ID) min = p;
+            if (p.ID < min.ID) {
+                min = p;
+            }
         }
         jTable1.setModel(dtm);
-        
+
         //Combo
         ArrayList<GradDO> gradovi = DatabaseProxy.getGradovi();
         DefaultComboBoxModel dcbm = new DefaultComboBoxModel();
-        for(GradDO g : gradovi){
+        for (GradDO g : gradovi) {
             dcbm.addElement(g);
         }
         jComboBox1.setModel(dcbm);
-        
+
         //Textfildovi
-        jTextField1.setText(""+min.ID);
+        jTextField1.setText("" + min.ID);
         jTextField2.setText(min.ime);
         jTextField3.setText(min.prezime);
         jTextField4.setText(min.adresa);
         jTextField6.setText(min.telefon);
-        
+
     }
 }

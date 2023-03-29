@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Korisnik
@@ -70,6 +71,27 @@ public final class DatabaseProxy {
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseProxy.class.getName()).log(Level.SEVERE, null, ex);
             return null;
+        }
+    }
+
+    static void setPecaros(PecarosDO pecaros) {
+        try {
+            PreparedStatement ps = c.prepareStatement("UPDATE Pecaros SET "
+                    + " PecarosID = ?, Ime = ?, Prezime = ?, Adresa = ?, GradID = ?, Telefon = ? "
+                    + " WHERE PecarosID = ?");
+            
+            ps.setInt(1, pecaros.ID);
+            ps.setString(2, pecaros.ime);
+            ps.setString(3, pecaros.prezime);
+            ps.setString(4, pecaros.adresa);
+            ps.setInt(5, pecaros.grad.ID);
+            ps.setString(6, pecaros.telefon);
+            ps.setInt(7, pecaros.ID);
+            ps.execute();            
+            JOptionPane.showMessageDialog(null, "Uspesan upis u bazu","Info",JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseProxy.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Neuspesan upis","Greska",JOptionPane.ERROR_MESSAGE);
         }
     }
 }

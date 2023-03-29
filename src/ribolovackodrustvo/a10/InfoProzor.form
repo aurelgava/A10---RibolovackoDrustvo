@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="625" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="308" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="&#x424;&#x443;&#x43d;&#x43a;&#x446;&#x438;&#x43e;&#x43d;&#x430;&#x43b;&#x43d;&#x43e;&#x441;&#x442; &#x43c;&#x435;&#x43d;&#x438;&#x458;&#x430;:&#xa;&#x25cf; &#x421;&#x442;&#x430;&#x432;&#x43a;&#x430; &#x43c;&#x435;&#x43d;&#x438;&#x458;&#x430; Izmeni &#x43e;&#x43c;&#x43e;&#x433;&#x443;&#x45b;&#x430;&#x432;&#x430; &#x430;&#x436;&#x443;&#x440;&#x438;&#x440;&#x430;&#x45a;&#x435; &#x43f;&#x43e;&#x434;&#x430;&#x442;&#x430;&#x43a;&#x430; &#x43e; &#x43f;&#x435;&#x446;&#x430;&#x440;&#x43e;&#x448;&#x443;;&#xa;&#x25cf; &#x421;&#x442;&#x430;&#x432;&#x43a;&#x430; &#x43c;&#x435;&#x43d;&#x438;&#x458;&#x430; Analiza &#x43f;&#x440;&#x438;&#x43a;&#x430;&#x437;&#x443;&#x458;&#x435; &#x444;&#x43e;&#x440;&#x43c;&#x443; &#x441;&#x430; &#x433;&#x440;&#x430;&#x444;&#x438;&#x43a;&#x43e;&#x43d;&#x43e;&#x43c;.&#xa;&#x25cf; &#x421;&#x442;&#x430;&#x432;&#x43a;&#x430; &#x43c;&#x435;&#x43d;&#x438;&#x458;&#x430; O aplikaciji &#x442;&#x440;&#x435;&#x431;&#x430; &#x434;&#x430; &#x43e;&#x442;&#x432;&#x43e;&#x440;&#x438; &#x43a;&#x440;&#x430;&#x442;&#x43a;&#x43e; &#x43a;&#x43e;&#x440;&#x438;&#x441;&#x43d;&#x438;&#x447;&#x43a;&#x43e; &#x443;&#x43f;&#x443;&#x442;&#x441;&#x442;&#x432;&#x43e;.&#xa;&#x25cf; &#x421;&#x442;&#x430;&#x432;&#x43a;&#x430; &#x43c;&#x435;&#x43d;&#x438;&#x458;&#x430; Izlaz &#x437;&#x430;&#x442;&#x432;&#x430;&#x440;&#x430; &#x430;&#x43f;&#x43b;&#x438;&#x43a;&#x430;&#x446;&#x438;&#x458;&#x443;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
