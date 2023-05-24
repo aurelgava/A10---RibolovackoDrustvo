@@ -14,8 +14,7 @@ public class RibolovackoDrustvoA10 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        DatabaseProxy.konektujSe();
+    public static void main(String[] args) {        
         new GlavniProzor().setVisible(true);
     }
     
