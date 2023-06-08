@@ -16,7 +16,7 @@ class PecarosDO {
 
     @Override
     public String toString() {
-        return ime + " " + prezime;
+        return ID + "-" + ime + " " + prezime;
     }
     
 }
